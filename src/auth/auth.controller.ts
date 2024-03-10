@@ -11,4 +11,10 @@ export class AuthController {
     async registerAccount(@Req() req: Request, @Body() userDTO: UserDTO): Promise<any> {
         return await this.authService.registerUser(userDTO);
     }
+
+    // 로그인 모듈 추가
+    @Post('/login')
+    async login(@Body() userDTO: UserDTO): Promise<any> {
+        return await this.authService.validateUser(userDTO);
+    }
 }
